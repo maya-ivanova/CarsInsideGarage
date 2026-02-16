@@ -65,33 +65,40 @@ Make sure you have the following installed before running the project:
 Follow these steps to get the project running locally.
 
 1. Clone the repository
+
 Bash
 git clone https://github.com/sensurl/CarsInsideGarage.git
 cd CarsInsideGarage
 
-2. Restore dependencies
+3. Restore dependencies
+
 Bash
 dotnet restore
 
-3. Set Environment and Update Database
+4. Set Environment and Update Database
+
 The project logic relies on the Staging environment. Run the command that matches your terminal:
 
 Windows (Command Prompt - CMD):
+
 DOS
 set ASPNETCORE_ENVIRONMENT=Staging
 dotnet ef database update
 
 Windows (PowerShell):
+
 PowerShell
 $env:ASPNETCORE_ENVIRONMENT='Staging'
 dotnet ef database update
 
 macOS / Linux / Git Bash:
+
 Bash
 export ASPNETCORE_ENVIRONMENT=Staging
 dotnet ef database update
 
 4. Run the application
+
 When running the app, ensure the environment flag is passed to maintain the "Staging" logic:
 Bash
 dotnet run --environment Staging
@@ -145,7 +152,7 @@ To access the features of the app after launching it:
 4. When leaving the parking lot, click "Pay" to end the session then "Exit" to leave the parking lot.
 ```
 
-> 💡 Take a look at the screenshots: `![Screenshot](docs/screenshot.png)`
+> 💡 Take a look at the screenshots: (docs/screenshots.png)
 
 ---
 
@@ -165,6 +172,7 @@ To create and seed the database:
 
 ```bash
 dotnet ef migrations add InitialCreate
+export ASPNETCORE_ENVIRONMENT=Staging
 dotnet ef database update
 ```
 
@@ -186,11 +194,6 @@ Key settings in `appsettings.Staging.json`:
   }
 }
 ```
-
-> ⚠️ **Never commit sensitive data** (passwords, API keys) to source control. Use `appsettings.Development.json` or environment variables for local secrets.
-
----
-
 ## 🤝 Contributing
 
 Contributions are welcome! To contribute:
